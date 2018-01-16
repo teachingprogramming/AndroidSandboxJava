@@ -1,5 +1,6 @@
 package net.teachingprogramming.androidsandboxjava;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,6 +51,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button3.setText("クリックリスナーの利用 3");
         button3.setOnClickListener(this);
         linearLayout.addView(button3);
+
+        Button button4 = new Button(this);
+        button4.setText("SecondActivityへ遷移");
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+            }
+        });
+        linearLayout.addView(button4);
     }
 
     @Override
