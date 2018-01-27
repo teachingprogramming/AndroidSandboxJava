@@ -1,10 +1,12 @@
 package net.teachingprogramming.androidsandboxjava;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -62,6 +64,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         linearLayout.addView(button4);
+
+        Button button5 = new Button(this);
+        button5.setText("ダイアログで画像を表示");
+        button5.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                ImageView imageView = new ImageView(MainActivity.this);
+                // app/src/main/res/drawableにsmartphone.pngで画像を追加するとR.drawable.smartphoneが使えるようになる
+                // 画像はいらすとや（http://www.irasutoya.com/2014/11/blog-post_362.html）より
+                imageView.setImageResource(R.drawable.smartphone);
+                imageView.setAdjustViewBounds(true);
+                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).setView(imageView).create();
+                alertDialog.show();
+            }
+        });
+        linearLayout.addView(button5);
     }
 
     @Override
